@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    id="com.phonegap.plugins.CDVPluginSmartBeacon"
+    version="0.0.1">
+
+<engines>
+    <engine name="cordova" version=">=3.0.0" />
+</engines>    
+
+<name>CDVPluginSmartBeacon</name>
+<description>SmartBeacon 3.0.0+</description>
+<author>rodh@kwixer.com</author>
+<keywords>smartbeacon,ios,cordova</keywords>
+
+<js-module src="www/PluginSmartBeacon.js" name="PluginSmartBeacon">
+    <clobbers target="window.PluginSmartBeacon" />
+</js-module>    
+
+<platform name="ios">
+    <config-file target="config.xml" parent="/*">
+        <feature name="CDVPluginSmartBeacon">
+            <param name="ios-package" value="CDVPluginSmartBeacon" />
+        </feature>
+    </config-file>    
+    <header-file src="src/ios/CDVPluginSmartBeacon.h" />
+    <source-file src="src/ios/CDVPluginSmartBeacon.m" /> 
+    <framework src="CoreLocation.framework" weak="false" />
+</platform>
+</plugin>
