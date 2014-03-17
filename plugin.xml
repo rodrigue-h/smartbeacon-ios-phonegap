@@ -25,5 +25,6 @@
     <header-file src="src/ios/CDVPluginSmartBeacon.h" />
     <source-file src="src/ios/CDVPluginSmartBeacon.m" /> 
     <framework src="CoreLocation.framework" weak="false" />
+    <framework src="src/ios/SmartBeacon-SDK.framework" custom="true" />
 </platform>
 </plugin>

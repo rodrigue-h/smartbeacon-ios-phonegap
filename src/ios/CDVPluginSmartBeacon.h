@@ -14,10 +14,11 @@
 
 @interface CDVPluginSmartBeacon : CDVPlugin <SBLocationManagerDelegate>
 {
-    NSString* didEnterRegionCallBackId;
-    NSString* didExitRegionCallBackId;
-    NSString* didDiscoverRegionCallBackId;
 }
+
+@property (nonatomic, copy) NSString *didEnterRegionCallBackId;
+@property (nonatomic, copy) NSString *didExitRegionCallBackId;
+@property (nonatomic, copy) NSString *didDiscoverRegionCallBackId;
 
 - (void) initWithIdentifier:(CDVInvokedUrlCommand *)command;
 - (void) didEnterRegion:(CDVInvokedUrlCommand *)command;

@@ -13,7 +13,7 @@ function PluginSmartBeacon() {
  * @param {Function} success callback
  * @param {Function} error callback
  * @example
- *      window.plugins.smartbeacon.initWithBeaconIdentifier(function (response) {
+ *      window.PluginSmartBeacon.initWithBeaconIdentifier('identifier', function (response) {
  *          
  *      });
  */
@@ -33,7 +33,10 @@ PluginSmartBeacon.prototype.initWithBeaconIdentifier = function(regionIdentifier
         return;
     }
     
-    cordova.exec(successCallback, errorCallback, 'CDVPluginSmartBeacon', 'initWithIdentifier', [regionIdentifier]);
+    var options = {
+        "regionIdentifier": regionIdentifier
+    }
+    cordova.exec(successCallback, errorCallback, 'CDVPluginSmartBeacon', 'initWithIdentifier', [options]);
 };
 
 /**
@@ -47,7 +50,7 @@ PluginSmartBeacon.prototype.didEnterRegion = function(callback){
         return;
     }
     
-    cordova.exec(successCallback, errorCallback, 'CDVPluginSmartBeacon', 'didEnterRegion', []);
+    cordova.exec(successCallback, function(error) {}, 'CDVPluginSmartBeacon', 'didEnterRegion', []);
 };
 
 /**
@@ -61,7 +64,7 @@ PluginSmartBeacon.prototype.didExitRegion = function(callback) {
         return;
     }
 
-    cordova.exec(successCallback, errorCallback, 'CDVPluginSmartBeacon', 'didExitRegion', []);
+    cordova.exec(successCallback, function(error) {}, 'CDVPluginSmartBeacon', 'didExitRegion', []);
     
 };
 
@@ -76,7 +79,7 @@ PluginSmartBeacon.prototype.didDiscoverBeacons = function(callback){
         return;
     }
     
-    cordova.exec(callback, 'CDVPluginSmartBeacon', 'didDiscoverBeacons', []);
+    cordova.exec(callback, function(error) {}, 'CDVPluginSmartBeacon', 'didDiscoverBeacons', []);
 };
 
 module.exports = new PluginSmartBeacon();
